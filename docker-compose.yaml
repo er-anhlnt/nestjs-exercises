@@ -1,10 +1,10 @@
 version: '3.0'
 services:
-  mysql_database:
+  database:
     image: mysql:latest
-    container_name: database
+    container_name: mysql_database
     ports:
-      - 3307:3306
+      - 3308:3306
     environment:
       - MYSQL_ROOT_PASSWORD=123123
       - MYSQL_DATABASE=test
