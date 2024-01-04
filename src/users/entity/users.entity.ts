@@ -1,4 +1,5 @@
 import { RefreshToken } from 'src/auth/entity/refresh-token.entity';
+import { Post } from 'src/posts/entities/post.entity';
 import {
   Column,
   CreateDateColumn,
@@ -33,4 +34,7 @@ export class User {
 
   @OneToMany(() => RefreshToken, (refreshToken) => refreshToken.user)
   refreshTokens: RefreshToken[];
+
+  @OneToMany(() => Post, (post) => post.user)
+  posts: Post[];
 }
