@@ -5,6 +5,7 @@ import typeorm from './config/typeorm';
 import { UsersModule } from './users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
+import { LoggerModule } from './common/logger/logger.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { JwtModule } from '@nestjs/jwt';
         };
       },
     }),
+    LoggerModule,
     UsersModule,
     AuthModule,
   ],
