@@ -26,11 +26,13 @@ export class AuthGuard implements CanActivate {
     } catch (error) {
       if (error instanceof TokenExpiredError) {
         throw new UnauthorizedException('Token expired');
-      } else if (error instanceof JsonWebTokenError) {
-        throw new UnauthorizedException('Invalid token');
-      } else {
-        throw new UnauthorizedException();
       }
+
+      if (error instanceof JsonWebTokenError) {
+        throw new UnauthorizedException('Invalid token');
+      }
+
+      throw new UnauthorizedException();
     }
   }
 
